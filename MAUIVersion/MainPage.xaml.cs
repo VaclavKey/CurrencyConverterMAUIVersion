@@ -9,10 +9,7 @@ namespace MAUIVersion
             InitializeComponent();
         }
 
-        private void DisplayAlertClick(object sender, EventArgs e)
-        {
-            DisplayAlert("Нажата кнопка", "Вы нажали кнопку", "ОК");
-        }
+
     }
 
 }
