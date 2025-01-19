@@ -7,384 +7,203 @@
         <Border BackgroundColor="#353535" Padding="20" HorizontalOptions="FillAndExpand">
             <Label Text="Конвертер Валют" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" TextColor="White"/>
         </Border>-->
-        <ScrollView>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
 
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+    <ContentPage.Resources>
+        <Style TargetType="Image" x:Key="CurrencyImage">
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="20, 10, 0, 10"/>
+        </Style>
+        <Style TargetType="Label" x:Key="CurrencyName">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="TextColor" Value="#FFFFFF"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Label" x:Key="CurrencyAbbr">
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="TextColor"  Value="#939393"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0, 10, 20, 10"/>
+        </Style>
+        <Style TargetType="Button" x:Key="CurrencyButton">
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderWidth" Value="0"/>
+            <Setter Property="HeightRequest" Value="80"/>
+        </Style>
+        <Style TargetType="Border" x:Key="CurrencyBorder">
+            <Setter Property="BackgroundColor" Value="#2B2B2B"/>
+            <Setter Property="HeightRequest" Value="80"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                        <Image Source="rub.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Российский рубль" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="RUB" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Image Style="{StaticResource CurrencyImage}" Source="rub.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Российский рубль"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="RUB"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="RUBClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Image Source="usd.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Доллар США" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="USD" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
+                    <Image Style="{StaticResource CurrencyImage}" Source="usd.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Доллар США"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="USD"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="USDClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Image Style="{StaticResource CurrencyImage}" Source="eur.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Евро"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="EUR"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="EURClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Image Source="eur.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Евро" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="EUR" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
+                    <Image Style="{StaticResource CurrencyImage}" Source="gbp.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Фунт Стерлингова"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="GBP"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="GBPClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Image Style="{StaticResource CurrencyImage}" Source="jpy.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Японская йена"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="JPY"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="JPYClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Image Source="gbp.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Фунт Стерлингова" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="GBP" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
+                    <Image Style="{StaticResource CurrencyImage}" Source="byn.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Белорусский рубль"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="BYN"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="BYNClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="6">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Image Style="{StaticResource CurrencyImage}" Source="pln.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Польский злотый"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="PLN"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="PLNClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="7">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Image Source="jpy.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Японская йена" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="JPY" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
+                    <Image Style="{StaticResource CurrencyImage}" Source="cny.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Китайский юань"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="CNY"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="CNYClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Image Style="{StaticResource CurrencyImage}" Source="tryc.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Турецкая лира"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="TRY"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="TRYClicked"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource CurrencyBorder}" Grid.Row="9">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Image Source="byn.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Белорусский рубль" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="BYN" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
-
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="6" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="pln.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Польский злотый" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="PLN" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
-
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="7" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="cny.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Китайский юань" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="CNY" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
-
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="8" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="try.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Турецкая лира" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="TRY" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
-
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-                <Border BackgroundColor="#2B2B2B" HeightRequest="80" HorizontalOptions="FillAndExpand" Grid.Row="9" Grid.Column="0" Padding="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="kzt.png" 
-                               Grid.Column="0" 
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20, 10, 0, 10"/>
-                        <Label Text="Казахстанский тенге" 
-                               TextColor="#FFFFFF" 
-                               Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="10"/>
-                        <Label Text="KZT" 
-                               TextColor="#939393" 
-                               Grid.Column="2" 
-                               HorizontalOptions="End"
-                               VerticalOptions="Center"
-                               Margin="0, 10, 20, 10"/>
-
-                        <Button Grid.Column="0" 
-                                Grid.ColumnSpan="3" 
-                                HorizontalOptions="FillAndExpand" 
-                                VerticalOptions="Center"
-                                Clicked="DisplayAlertClick"
-                                Background="Transparent"
-                                BorderWidth="0"
-                                HeightRequest="80"/>
-                    </Grid>
-                </Border>
-            </Grid>
-
-
-        </ScrollView>
-    <!--</StackLayout>-->
+                    <Image Style="{StaticResource CurrencyImage}" Source="kzt.png"/>
+                    <Label Style="{StaticResource CurrencyName}" Text="Казахстанский тенге"/>
+                    <Label Style="{StaticResource CurrencyAbbr}" Text="KZT"/>
+                    <Button Style="{StaticResource CurrencyButton}" Clicked="KZTClicked"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
 </ContentPage>

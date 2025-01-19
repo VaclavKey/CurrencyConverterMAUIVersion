@@ -65,14 +65,20 @@
 	  <None Remove="Resources\Images\kzt.png" />
 	  <None Remove="Resources\Images\pln.png" />
 	  <None Remove="Resources\Images\rub.png" />
-	  <None Remove="Resources\Images\try.png" />
+	  <None Remove="Resources\Images\tryc.png" />
 	  <None Remove="Resources\Images\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.30" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.30" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ConverterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
